@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+
+</head>
+<body>
+    
+    <ul id="test">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        // 이벤트 위임 방법 : on (이벤트 종류, "어떤태그에 전파할건지", 실행함수)
+        $("#test").on("click","li", function() {
+            console.log(event.target.innerHTML)
+        })
+
+    </script>
+
+
+    <div id="div">
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // a태그가 존재하지 않기때문에 동작하지 않음
+            // $("#div > a").click(function() {
+            //     event.preventDefault();// 고유이벤트 중단
+            //     alert("경고가 뜰까요??");
+            // })
+            
+
+            // 위의 코드와는 달리 alert가 작동한다 
+            // 비동기에서 태그의 위치와는 상관없이 실행이 되게끔 해준다
+            $("#div").on("click","a",function() {
+                event.preventDefault(); // 고유이벤트 준단
+                alert("경고가 뜰까요??")
+            })
+
+            var str = "";
+            str += "<a href='tag'>sdf</a><br>";
+            str += "<a href='tag'>sdf</a><br>";
+            str += "<a href='tag'>sdf</a><br>";
+            $("#div").html(str);
+        })
+
+    </script>
+
+</body>
+</html>

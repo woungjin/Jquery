@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+
+    <input type="text" id="apple" value="홍길동">
+    <input type="text" class="melon" value="길동자">
+    <input type="hidden" value="순신스">
+
+    <script>
+        // var a = document.getElementById("apple");
+        // console.log(a);
+        // var m = document.querySelector(".melon");
+        // console.log(m)
+        // var hid = document.querySelector("input[type='hidden']")
+        // console.log(hid)
+
+        // 제이쿼리는 $("선택자")를 통해서 요소를 얻으면, 반환으로 객체를 돌려준다
+        // $("선택자")[인덱스번호]로 태그를얻을수 있으며
+        // $("선택자").제이쿼리함수() 를 통해서 값을 가져온다 
+
+        var a1 = $("#apple");
+        console.log(a1);
+
+        var a2 = $("#apple")[0];
+        console.log(a2);
+
+        var a3 = $("#apple").val()
+        console.log(a3);
+
+        var b1 = $(".melon").val(); // 클래스가 melon인 태그의 값을 가져오는 방법
+        console.log(b1);
+
+        var c1 = $("input[type='hidden']").val();
+        console.log(c1)
+
+        // 값을 변경하는 방법 : val(변경할 값)
+        document.getElementById("apple").value = "바꾼값~~"; // JS방식
+        $("#apple").val("바꾼값~"); // Jquery 방식
+
+    </script>
+
+    
+
+    
+
+</body>
+</html>

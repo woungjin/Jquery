@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script src="js/jquery.js"></script>
+    
+    <style type="text/css">
+        .center {
+            text-align: center;
+        }
+        .content,
+        .content .left,
+        .content .right {
+            width: 50%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+        .content {
+            overflow: hidden;
+            border: 1px solid #777;
+        }
+        .content .left,
+        .content .right {
+            float: left;
+        }
+        
+        .left .inner,
+        .right .inner {
+            border: 1px solid #777;
+            height: 300px;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        
+    </style>
+    
+</head>
+<body id="body">
+    
+    <!-- ready함수를 이용해서 제이쿼리로 코드를 작성 -->
+
+    <header id="h">
+        <div class="center">
+            <h2>야간모드</h2>
+            <button type="button" id="btn1" class="dark">어둡게보기</button>
+            <button type="button" id="btn2" class="name">이름보기</button>
+            <hr>
+        </div>
+    </header>
+    
+    <section>
+        <div class="content">
+            <div class="left">
+                <div class="inner"><img src="#"></div>
+            </div>
+            <div class="right">
+                <div class="inner">
+                    <p>자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다</p>
+                    <a href="https://www.naver.com">위키백과</a>
+                </div>
+            </div>            
+        </div>
+    </section>
+    
+        
+    <script>
+        // js가 아닌 jquery로 처리해보기
+        $(document).ready(function () {
+
+            $("#btn1").click(function(){
+                if($(btn1).attr("class") === "dark") {
+                    $("body").css("backgroundColor","black");
+                    $("h2,p,a").css("color","white")
+                    $("#btn1").html("밝게보기"); // 버튼 innerHTML변경
+                    $("#btn1").attr("class","white")// 클래스 이름 변경
+
+                    console.log($("#btn1").attr("class"))
+                } else {
+                    $("body").css("backgroundColor","white");
+                    $("h2,p,a").css("color","black")
+                    $("#btn1").html("어둡게보기"); // 버튼 innerHTML변경
+                    $("#btn1").attr("class","dark")// 클래스 이름 변경
+
+                    console.log($("#btn1").attr("class"))
+                }
+            })
+
+
+            $("#btn2").click(function(){
+                if( $("#btn2").attr("class")==="name") {
+                    $(".inner > p").html("~~~~~내용");
+                    $(".inner > a").css("display","none");
+                    $("#btn2").html("내용보기");
+                    $("#btn2").attr("class","cont");
+                } else {
+                    var str = "자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다"
+                    $(".inner > p").html(str);
+                    $(".inner > a").css("display","inline");
+                    $("#btn2").html("이름보기");
+                    $("#btn2").attr("class","name");
+                }
+            })
+
+        })
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

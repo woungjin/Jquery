@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" id="ajax">제이쿼리 가동</button>
+
+    <script src="js/jquery.js"></script>
+
+
+    <script>
+        $("#ajax").click(function() {
+            
+            $.ajax({
+                type:"POST", // 보낼타입
+                url: "http://localhost:8181/myweb/getJson", // 요청경로(통신할 주소) 
+                data: JSON.stringify({"bno":"1","writer":"길동이"}), // 문자열의 바꿔서 보내준다 
+            //  dataType : "application/json; charset=utf-8" 서버에서 전달받을 타입을 지정함  (생략가능)
+                contentType : "application/json; charset=utf-8", // 보내는 데이터에 대한 타입 (꼭 써줘야함)
+                success : function(data) { // 성공시 돌려받을 콜백함수(값을 가져와서 넣어줌 )
+                    console.log(data)
+                },
+                error : function(error) { // 에러시 돌려받을 함수
+                    console.log(error)
+                }
+            })
+
+
+        })
+
+    </script>
+
+
+</body>
+</html>

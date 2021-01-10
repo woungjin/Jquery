@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function() { // 제이쿼리 클릭이벤트 on이 없는 click함수
+                alert("이벤트 실행됨1!");
+            })
+
+            $("#sel").change(function() {
+                alert("이벤트 실행됨2!");
+                // console.log(event.target.value);
+                console.log($(this).val()) // 현재 실행되는 이벤트 대상을 구해옴
+            })
+
+
+        })
+
+    </script>
+    
+<button type="button" id="btn" >이벤트 버튼</button>
+<select  id="sel">
+    <option value="ㅅㄷㄴㅅ1">test1</option>
+    <option value="test2">test2</option>
+    <option value="test3">test3</option>
+</select>
+
+</body>
+</html>

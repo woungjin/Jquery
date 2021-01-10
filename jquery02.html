@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    
+    <input type="text" id="test1" readonly = "readonly">
+    <div id="test2">테스트2</div>
+    <div id="test3" style="color:Red">테스트3</div>
+
+    <script>
+        // 1. id가 test1인 태그의 type을 확인
+        //console.log(document.getElementById("test1").id)
+        console.log($("#test1").attr("id"))
+
+        // 2. readonly확인
+        console.log($("#test1").attr("readonly")) 
+
+        // attr(타입, 변경값) - 특정 속성의 값을 변경이 가능하다 
+        $("#test1").attr("id", "변경할값")
+
+        // id가 test02인innerHTML값을 확인, 변경
+        // console.log(document.getElementById("test2").innerHTML)
+        console.log($("#test2").html())
+
+        $("#test2").html("홍길자~~"); // innerHTML을 대신함
+        $("#test").html(""); // innerHTML값을 공백으로 바꿈
+
+        // id가 test03인 태그의 css("값")값을 확인, 변경
+        console.log($("#test3").css("color"))
+        $("#test3").css("color","blue");
+        $("#test3").css("backgroundColor","red");
+
+        // class추가
+        $("#test3").addClass("banner"); 
+
+        console.log($("#test3"))
+    </script>
+
+</body>
+</html>
